@@ -8,8 +8,9 @@ module.exports.go = (server) => {
         //check if data is received, then console.log
         spark.on('data', (data) => {
             console.log(data, 'data received');
-            //send data back to client
-            spark.write(data);
+            //send data back to all clients
+            primus.write(data);
+            
         });
 
 
